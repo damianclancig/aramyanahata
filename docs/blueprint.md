@@ -1,0 +1,21 @@
+# **App Name**: Aramy Anahata Landing
+
+## Core Features:
+
+- Hero: Hero Section: Display an image of Stella or a Reiki symbol, a welcoming headline, and a call-to-action button linking to WhatsApp for session bookings. (Spanish: Sección Hero: Muestra una imagen de Stella o un símbolo de Reiki, un título de bienvenida y un botón de llamada a la acción que enlace a WhatsApp para reservar sesiones.)
+- Services: Services Section: Showcase four service cards (Terapias Energéticas, Lecturas Intuitivas, Masajes, Talleres) with brief descriptions to entice users. (Spanish: Sección de Servicios: Muestra cuatro tarjetas de servicio (Terapias Energéticas, Lecturas Intuitivas, Masajes, Talleres) con breves descripciones para atraer a los usuarios.)
+- Products: Products Section: Display a grid of four product items (Jabones, Velas, Aceites, Cremas) with a generic description and a WhatsApp consultation button. (Spanish: Sección de Productos: Muestra una cuadrícula de cuatro elementos de producto (Jabones, Velas, Aceites, Cremas) con una descripción genérica y un botón de consulta por WhatsApp.)
+- About Stella: About Stella Section: Feature a photo and bio of Stella, highlighting her experience, and a link to her Instagram profile. (Spanish: Sección Sobre Stella: Presenta una foto y biografía de Stella, destacando su experiencia, y un enlace a su perfil de Instagram.)
+- Testimonials: Testimonials Section: Display three authentic testimonials to build trust and credibility. (Spanish: Sección de Testimonios: Muestra tres testimonios auténticos para generar confianza y credibilidad.)
+- Contact Form: Contact Form: Implement a simple contact form using Firebase to collect user inquiries. (Spanish: Formulario de Contacto: Implementa un formulario de contacto simple utilizando Firebase para recopilar las consultas de los usuarios.)
+- WhatsApp Button: WhatsApp Floating Button: Add a fixed, bottom-right WhatsApp button for quick and easy communication with Stella. (Spanish: Botón Flotante de WhatsApp: Agrega un botón fijo de WhatsApp en la parte inferior derecha para una comunicación rápida y fácil con Stella.)
+
+## Style Guidelines:
+
+- Primary color: Soft Sage Green (#789D8C) for primary buttons/CTAs to evoke a sense of natural healing and growth. (Spanish: Color primario: Verde Salvia Suave (#789D8C) para botones primarios/CTA para evocar una sensación de curación natural y crecimiento.)
+- Background color: Soft Ivory (#F3EFE0) to provide a calm and clean backdrop, enhancing readability and creating a serene atmosphere. (Spanish: Color de fondo: Marfil Suave (#F3EFE0) para proporcionar un fondo tranquilo y limpio, mejorando la legibilidad y creando una atmósfera serena.)
+- Accent color: Warm Lavender (#B6A6CA) to highlight important elements and add a touch of tranquility, promoting a sense of balance and harmony. (Spanish: Color de acento: Lavanda Cálido (#B6A6CA) para resaltar elementos importantes y agregar un toque de tranquilidad, promoviendo una sensación de equilibrio y armonía.)
+- Body font: 'Alegreya', serif, for body text to ensure readability and impart a literary, gentle feel. (Spanish: Fuente del cuerpo: 'Alegreya', serif, para el texto del cuerpo para garantizar la legibilidad e impartir una sensación literaria y suave.)
+- Headline font: 'Belleza', sans-serif, for headlines and shorter text chunks. Belleza is used here to add a personalized, warm touch to the headings, and visually distinguish them from the body text. (Spanish: Fuente del título: 'Belleza', sans-serif, para títulos y fragmentos de texto más cortos. Belleza se utiliza aquí para agregar un toque cálido y personalizado a los encabezados, y distinguirlos visualmente del texto del cuerpo.)
+- Use minimalistic icons related to holistic therapies (e.g., leaf, lotus, heart) to enhance visual appeal. (Spanish: Utiliza iconos minimalistas relacionados con terapias holísticas (por ejemplo, hoja, loto, corazón) para mejorar el atractivo visual.)
+- Subtle hover effects on buttons (change to #D8A7B1) and a gentle scaling transition on cards (transform: scale(1.02)) for a smooth user experience. (Spanish: Efectos de desplazamiento sutiles en los botones (cambio a #D8A7B1) y una transición de escala suave en las tarjetas (transform: scale(1.02)) para una experiencia de usuario fluida.)
