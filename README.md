@@ -9,12 +9,14 @@ El sitio web está diseñado para ser una carta de presentación digital para St
 ## 🚀 Funcionalidades
 
 - **Hero Section:** Una imagen de bienvenida impactante con un llamado a la acción directo para reservar sesiones por WhatsApp.
-- **Sección de Servicios:** Muestra las diferentes terapias ofrecidas (Terapias Energéticas, Lecturas Intuitivas, Masajes, Talleres).
+- **Secciones de Contenido:** Información clara y separada sobre Servicios, Productos, la historia de Stella y Testimonios.
+- **Separadores de Sección:** Un elegante separador con un icono de mandala que divide visualmente cada sección, manteniendo una estética limpia y energética.
 - **Sección de Productos:** Presenta productos artesanales como jabones y velas. Cada producto tiene un botón para iniciar una consulta por WhatsApp con un mensaje predefinido.
 - **Sobre Stella:** Una sección dedicada a presentar a la terapeuta, incluyendo una breve biografía y un enlace a su perfil de Instagram.
 - **Sección de Testimonios:** Un carrusel dinámico que muestra testimonios de clientes. Incluye un formulario para que los visitantes puedan enviar sus propias experiencias, las cuales se almacenan en Firebase.
 - **Formulario de Contacto:** Un formulario simple para que los usuarios envíen consultas generales. Los mensajes se guardan en Firebase y se envía una notificación por correo electrónico usando Resend.
 - **Botón Flotante de WhatsApp:** Un botón fijo en la esquina inferior derecha para un acceso rápido y fácil al chat de WhatsApp.
+- **SEO Optimizado:** Metadatos avanzados, `sitemap.xml` y `robots.txt` generados dinámicamente para un posicionamiento óptimo en buscadores.
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -58,7 +60,7 @@ Crea una copia del archivo `.env.example` y renómbrala a `.env`. Luego, complet
 cp .env.example .env
 ```
 
-El archivo `.env` contendrá las credenciales para conectar con Firebase y Resend. Reemplaza los valores de ejemplo con tus propias credenciales.
+El archivo `.env` contendrá las credenciales para conectar con Firebase, Resend y la URL del sitio. Reemplaza los valores de ejemplo con tus propias credenciales.
 
 ### 4. Ejecutar el Servidor de Desarrollo
 
