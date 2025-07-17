@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { InstagramIcon } from "@/components/icons/InstagramIcon";
 
 export function About() {
+  const instagramUrl = process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://instagram.com/aramy.anahata";
+
   return (
     <section id="about" className="w-full bg-background">
       <div className="container mx-auto px-4 md:px-6">
@@ -29,7 +31,7 @@ export function About() {
             </p>
             <div className="mt-8">
               <Button asChild variant="outline">
-                <Link href="https://instagram.com/aramy.anahata" target="_blank" rel="noopener noreferrer">
+                <Link href={instagramUrl} target="_blank" rel="noopener noreferrer">
                   <InstagramIcon className="w-5 h-5 mr-2" />
                   Síguela en Instagram
                 </Link>

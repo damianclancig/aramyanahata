@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import Image from "next/image";
 import { InstagramIcon } from "@/components/icons/InstagramIcon";
@@ -6,6 +5,8 @@ import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "521234567890";
+  const instagramUrl = process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://instagram.com/aramy.anahata";
 
   return (
     <footer className="bg-background/80 border-t">
@@ -29,10 +30,10 @@ export function Footer() {
             </p>
           </div>
           <div className="flex items-center gap-4">
-            <Link href="https://wa.me/521234567890" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <Link href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
               <WhatsAppIcon className="w-6 h-6 text-[#25D366] hover:text-[#128C7E] transition-colors" />
             </Link>
-            <Link href="https://instagram.com/aramy.anahata" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <Link href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <InstagramIcon className="w-6 h-6 text-[#E1306C] hover:text-[#C13584] transition-colors" />
             </Link>
           </div>

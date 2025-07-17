@@ -60,7 +60,7 @@ Crea una copia del archivo `.env.example` y renómbrala a `.env`. Luego, complet
 cp .env.example .env
 ```
 
-El archivo `.env` contendrá las credenciales para conectar con Firebase, Resend y la URL del sitio. Reemplaza los valores de ejemplo con tus propias credenciales.
+El archivo `.env` contendrá las credenciales para conectar con Firebase, Resend, la URL del sitio y el número de WhatsApp. Reemplaza los valores de ejemplo con tus propias credenciales.
 
 ### 4. Ejecutar el Servidor de Desarrollo
 

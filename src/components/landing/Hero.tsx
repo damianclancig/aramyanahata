@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function Hero() {
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "521234567890";
   return (
     <section className="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center text-center text-white">
       <div
@@ -21,7 +22,7 @@ export function Hero() {
           </p>
           <div className="mt-10">
             <Button asChild size="lg" className={cn("text-lg py-7 px-8 transition-transform hover:scale-105", "hover-bg-brand")}>
-              <Link href="https://wa.me/521234567890" target="_blank" rel="noopener noreferrer">
+              <Link href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
                 Reservar Sesión por WhatsApp
               </Link>
             </Button>

@@ -32,7 +32,8 @@ const products = [
 ];
 
 export function Products() {
-  const whatsappBaseUrl = "https://wa.me/521234567890?text=";
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "521234567890";
+  const whatsappBaseUrl = `https://wa.me/${whatsappNumber}?text=`;
 
   return (
     <section id="products" className="w-full bg-background/70">

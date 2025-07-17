@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 
 export function WhatsAppButton() {
   const [isVisible, setIsVisible] = useState(true);
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "521234567890";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +32,7 @@ export function WhatsAppButton() {
         isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
       )}
     >
-      <Link href="https://wa.me/521234567890" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+      <Link href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
         <WhatsAppIcon className="w-8 h-8 text-white" />
       </Link>
     </Button>
