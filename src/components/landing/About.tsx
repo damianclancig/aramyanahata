@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -6,7 +5,7 @@ import { InstagramIcon } from "@/components/icons/InstagramIcon";
 
 export function About() {
   return (
-    <section id="about" className="w-full py-20 md:py-32 bg-background">
+    <section id="about" className="w-full bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-2">

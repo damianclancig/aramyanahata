@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useForm } from "react-hook-form";
@@ -48,7 +47,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="w-full py-20 md:py-32 bg-background">
+    <section id="contact" className="w-full bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <Card className="max-w-2xl mx-auto shadow-xl border-t-4 border-t-primary">
           <CardHeader className="text-center">

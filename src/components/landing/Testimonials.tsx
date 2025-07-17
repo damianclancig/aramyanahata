@@ -1,4 +1,3 @@
-
 "use client";
 
 import * as React from "react";
@@ -87,7 +86,7 @@ export function Testimonials() {
 
 
   return (
-    <section id="testimonials" className="w-full py-20 md:py-32 bg-background/70">
+    <section id="testimonials" className="w-full bg-background/70">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold font-headline text-foreground">Lo que dicen de nosotros</h2>

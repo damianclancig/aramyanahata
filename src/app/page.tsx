@@ -7,6 +7,7 @@ import { Testimonials } from "@/components/landing/Testimonials";
 import { Contact } from "@/components/landing/Contact";
 import { Footer } from "@/components/landing/Footer";
 import { WhatsAppButton } from "@/components/landing/WhatsAppButton";
+import { SectionSeparator } from "@/components/landing/SectionSeparator";
 
 export default function Home() {
   return (
@@ -14,10 +15,15 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
+        <SectionSeparator invisible />
         <Services />
+        <SectionSeparator />
         <Products />
+        <SectionSeparator />
         <About />
+        <SectionSeparator />
         <Testimonials />
+        <SectionSeparator />
         <Contact />
       </main>
       <Footer />

@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -36,7 +35,7 @@ export function Products() {
   const whatsappBaseUrl = "https://wa.me/521234567890?text=";
 
   return (
-    <section id="products" className="w-full py-20 md:py-32 bg-background/70">
+    <section id="products" className="w-full bg-background/70">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold font-headline text-foreground">Productos Artesanales</h2>
