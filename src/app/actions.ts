@@ -2,8 +2,10 @@
 "use server";
 
 import type { FormValues, TestimonialFormValues } from "@/lib/schemas";
-import { db } from "@/lib/firebase";
+import { getDb } from "@/lib/firebase";
 import { collection, addDoc, getDocs, query, orderBy, Timestamp } from "firebase/firestore";
+import { Resend } from "resend";
+import { ContactFormEmail } from "@/components/emails/ContactFormEmail";
 
 const initialTestimonials = [
   {
@@ -27,20 +29,46 @@ const initialTestimonials = [
 ];
 
 export async function submitInquiry(data: FormValues) {
+  const resendApiKey = process.env.NEXT_PUBLIC_RESEND_API_KEY;
+  const toEmail = process.env.NEXT_PUBLIC_RESEND_TO_EMAIL;
+  const fromEmail = process.env.NEXT_PUBLIC_RESEND_FROM_EMAIL || 'Aramy Anahata <onboarding@resend.dev>';
+  const db = getDb();
+
   try {
-    const docRef = await addDoc(collection(db, "inquiries"), {
+    // 1. Save to Firebase (as a backup)
+    await addDoc(collection(db, "inquiries"), {
       ...data,
       createdAt: Timestamp.now(),
     });
-    console.log("Document written with ID: ", docRef.id);
+
+    // 2. Send email with Resend
+    if (resendApiKey && toEmail) {
+      const resend = new Resend(resendApiKey);
+      try {
+        await resend.emails.send({
+          from: fromEmail,
+          to: toEmail,
+          subject: 'Nuevo Mensaje de Contacto - Aramy Anahata',
+          react: ContactFormEmail({ name: data.name, email: data.email, message: data.message }),
+        });
+      } catch (emailError) {
+        console.error("Resend email error:", emailError);
+        // Don't block the user response if email fails, just log it.
+        // The inquiry is already saved in Firebase.
+      }
+    } else {
+        console.warn("NEXT_PUBLIC_RESEND_API_KEY or NEXT_PUBLIC_RESEND_TO_EMAIL is not set. Skipping email sending.");
+    }
+
     return { success: true, message: "¡Gracias por tu mensaje! Te contactaremos pronto." };
   } catch (e) {
-    console.error("Error adding document: ", e);
+    console.error("Error adding document or sending email: ", e);
     return { success: false, message: "Hubo un error al enviar tu mensaje. Por favor, intenta de nuevo." };
   }
 }
 
 export async function submitTestimonial(data: TestimonialFormValues) {
+  const db = getDb();
   try {
     await addDoc(collection(db, "testimonials"), {
       ...data,
@@ -55,6 +83,7 @@ export async function submitTestimonial(data: TestimonialFormValues) {
 }
 
 export async function getTestimonials() {
+  const db = getDb();
   try {
     const testimonialsCol = collection(db, "testimonials");
     const q = query(testimonialsCol, orderBy("createdAt", "desc"));
@@ -69,10 +98,16 @@ export async function getTestimonials() {
       };
     });
 
-    // Combine initial testimonials with testimonials from DB
-    // To prevent duplicates if initial ones were added to DB, a more robust check would be needed.
-    // For this case, we just combine them.
-    return [...initialTestimonials.map(t => ({ quote: t.quote, author: t.author, rating: t.rating })), ...dbTestimonials];
+    // Combine initial and database testimonials, ensuring a consistent structure
+    const allTestimonials = [
+        ...initialTestimonials.map(t => ({ quote: t.quote, author: t.author, rating: t.rating })), 
+        ...dbTestimonials
+    ];
+    
+    // Sort all testimonials by date (assuming createdAt exists or can be inferred)
+    // For this example, we'll just return the combined list as is, with DB ones first.
+    return dbTestimonials.length > 0 ? allTestimonials : initialTestimonials.map(t => ({ quote: t.quote, author: t.author, rating: t.rating }));
+
   } catch (error) {
     console.error("Error fetching testimonials: ", error);
     // On error, return the hardcoded list

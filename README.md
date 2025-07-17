@@ -13,7 +13,7 @@ El sitio web está diseñado para ser una carta de presentación digital para St
 - **Sección de Productos:** Presenta productos artesanales como jabones y velas. Cada producto tiene un botón para iniciar una consulta por WhatsApp con un mensaje predefinido.
 - **Sobre Stella:** Una sección dedicada a presentar a la terapeuta, incluyendo una breve biografía y un enlace a su perfil de Instagram.
 - **Sección de Testimonios:** Un carrusel dinámico que muestra testimonios de clientes. Incluye un formulario para que los visitantes puedan enviar sus propias experiencias, las cuales se almacenan en Firebase.
-- **Formulario de Contacto:** Un formulario simple para que los usuarios envíen consultas generales. Los mensajes se guardan en Firebase.
+- **Formulario de Contacto:** Un formulario simple para que los usuarios envíen consultas generales. Los mensajes se guardan en Firebase y se envía una notificación por correo electrónico usando Resend.
 - **Botón Flotante de WhatsApp:** Un botón fijo en la esquina inferior derecha para un acceso rápido y fácil al chat de WhatsApp.
 
 ## 🛠️ Tecnologías Utilizadas
@@ -24,6 +24,7 @@ El sitio web está diseñado para ser una carta de presentación digital para St
 - **Componentes UI:** [ShadCN UI](https://ui.shadcn.com/)
 - **Manejo de Formularios:** [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/) para validación.
 - **Backend & Base de Datos:** [Firebase](https://firebase.google.com/) (Firestore para almacenar testimonios y mensajes de contacto).
+- **Envío de correos:** [Resend](https://resend.com/)
 - **Carrusel:** [Embla Carousel](https://www.embla-carousel.com/)
 - **Iconos:** [Lucide React](https://lucide.dev/guide/packages/lucide-react)
 
@@ -51,19 +52,13 @@ npm install
 
 ### 3. Configurar Variables de Entorno
 
-Crea un archivo `.env` en la raíz del proyecto. Este archivo contendrá las credenciales para conectar con Firebase.
+Crea una copia del archivo `.env.example` y renómbrala a `.env`. Luego, completa los valores correspondientes.
 
-```
-# Firebase Configuration
-FIREBASE_API_KEY="TU_API_KEY"
-FIREBASE_AUTH_DOMAIN="TU_AUTH_DOMAIN"
-FIREBASE_PROJECT_ID="TU_PROJECT_ID"
-FIREBASE_STORAGE_BUCKET="TU_STORAGE_BUCKET"
-FIREBASE_MESSAGING_SENDER_ID="TU_SENDER_ID"
-FIREBASE_APP_ID="TU_APP_ID"
+```bash
+cp .env.example .env
 ```
 
-Reemplaza los valores `TU_*` con las credenciales de tu proyecto de Firebase. Puedes encontrarlas en la configuración de tu proyecto en la consola de Firebase.
+El archivo `.env` contendrá las credenciales para conectar con Firebase y Resend. Reemplaza los valores de ejemplo con tus propias credenciales.
 
 ### 4. Ejecutar el Servidor de Desarrollo
 
