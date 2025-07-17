@@ -30,7 +30,7 @@ export async function submitInquiry(data: FormValues) {
   try {
     const docRef = await addDoc(collection(db, "inquiries"), {
       ...data,
-      createdAt: new Date(),
+      createdAt: Timestamp.now(),
     });
     console.log("Document written with ID: ", docRef.id);
     return { success: true, message: "¡Gracias por tu mensaje! Te contactaremos pronto." };
@@ -45,7 +45,7 @@ export async function submitTestimonial(data: TestimonialFormValues) {
     await addDoc(collection(db, "testimonials"), {
       ...data,
       rating: 5, // Default rating
-      createdAt: new Date(),
+      createdAt: Timestamp.now(),
     });
     return { success: true, message: "¡Gracias por tu testimonio! Ha sido enviado para su revisión." };
   } catch (e) {
