@@ -3,10 +3,11 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
+import { Analytics } from "@vercel/analytics/react";
 
 const siteConfig = {
   name: "Aramy Anahata",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://aramyanahata.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.aramyanahata.com.ar",
   description: "Espacio de sanación y bienestar. Terapias energéticas, lecturas intuitivas, masajes y talleres para equilibrar tu cuerpo, mente y espíritu.",
   author: "Stella",
   keywords: ["terapias holísticas", "reiki", "sanación energética", "lecturas de tarot", "masajes holísticos", "bienestar espiritual", "meditación", "cristales"],
@@ -66,6 +67,7 @@ export default function RootLayout({
       <body className={cn("font-body antialiased", "min-h-screen bg-background font-sans")}>
         {children}
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );

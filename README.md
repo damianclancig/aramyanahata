@@ -17,6 +17,7 @@ El sitio web está diseñado para ser una carta de presentación digital para St
 - **Formulario de Contacto:** Un formulario simple para que los usuarios envíen consultas generales. Los mensajes se guardan en Firebase y se envía una notificación por correo electrónico usando Resend.
 - **Botón Flotante de WhatsApp:** Un botón fijo en la esquina inferior derecha para un acceso rápido y fácil al chat de WhatsApp.
 - **SEO Optimizado:** Metadatos avanzados, `sitemap.xml` y `robots.txt` generados dinámicamente para un posicionamiento óptimo en buscadores.
+- **Analíticas:** Integración con Vercel Analytics para seguimiento de tráfico.
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -29,6 +30,7 @@ El sitio web está diseñado para ser una carta de presentación digital para St
 - **Envío de correos:** [Resend](https://resend.com/)
 - **Carrusel:** [Embla Carousel](https://www.embla-carousel.com/)
 - **Iconos:** [Lucide React](https://lucide.dev/guide/packages/lucide-react)
+- **Analíticas:** [Vercel Analytics](https://vercel.com/analytics)
 
 ## ⚙️ Configuración del Ambiente de Desarrollo
 
@@ -60,7 +62,7 @@ Crea una copia del archivo `.env.example` y renómbrala a `.env`. Luego, complet
 cp .env.example .env
 ```
 
-El archivo `.env` contendrá las credenciales para conectar con Firebase, Resend, la URL del sitio y el número de WhatsApp. Reemplaza los valores de ejemplo con tus propias credenciales.
+El archivo `.env` contendrá las credenciales para conectar con Firebase, Resend, la URL del sitio, el número de WhatsApp y la URL de Instagram. Reemplaza los valores de ejemplo con tus propias credenciales.
 
 ### 4. Ejecutar el Servidor de Desarrollo
 
