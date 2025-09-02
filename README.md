@@ -1,3 +1,4 @@
+
 # Landing Page - Aramy Anahata
 
 Este es el repositorio para la página de aterrizaje de "Aramy Anahata", un espacio dedicado a terapias holísticas, sanación y bienestar.
@@ -14,7 +15,7 @@ El sitio web está diseñado para ser una carta de presentación digital para St
 - **Sección de Productos:** Presenta productos artesanales como jabones y velas. Cada producto tiene un botón para iniciar una consulta por WhatsApp con un mensaje predefinido.
 - **Sobre Stella:** Una sección dedicada a presentar a la terapeuta, incluyendo una breve biografía y un enlace a su perfil de Instagram.
 - **Sección de Testimonios:** Un carrusel dinámico que muestra testimonios de clientes. Incluye un formulario para que los visitantes puedan enviar sus propias experiencias, las cuales se almacenan en Firebase.
-- **Formulario de Contacto:** Un formulario simple para que los usuarios envíen consultas generales. Los mensajes se guardan en Firebase y se envía una notificación por correo electrónico usando Resend.
+- **Formulario de Contacto:** Un formulario simple para que los usuarios envíen consultas generales. Los mensajes se guardan en Firebase y se envía una notificación por correo electrónico usando Maileroo.
 - **Botón Flotante de WhatsApp:** Un botón fijo en la esquina inferior derecha para un acceso rápido y fácil al chat de WhatsApp.
 - **SEO Optimizado:** Metadatos avanzados, `sitemap.xml` y `robots.txt` generados dinámicamente para un posicionamiento óptimo en buscadores.
 - **Analíticas:** Integración con Vercel Analytics para seguimiento de tráfico.
@@ -27,7 +28,7 @@ El sitio web está diseñado para ser una carta de presentación digital para St
 - **Componentes UI:** [ShadCN UI](https://ui.shadcn.com/)
 - **Manejo de Formularios:** [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/) para validación.
 - **Backend & Base de Datos:** [Firebase](https://firebase.google.com/) (Firestore para almacenar testimonios y mensajes de contacto).
-- **Envío de correos:** [Resend](https://resend.com/)
+- **Envío de correos:** [Maileroo](https://maileroo.com/)
 - **Carrusel:** [Embla Carousel](https://www.embla-carousel.com/)
 - **Iconos:** [Lucide React](https://lucide.dev/guide/packages/lucide-react)
 - **Analíticas:** [Vercel Analytics](https://vercel.com/analytics)
@@ -62,7 +63,7 @@ Crea una copia del archivo `.env.example` y renómbrala a `.env`. Luego, complet
 cp .env.example .env
 ```
 
-El archivo `.env` contendrá las credenciales para conectar con Firebase, Resend, la URL del sitio, el número de WhatsApp y la URL de Instagram. Reemplaza los valores de ejemplo con tus propias credenciales.
+El archivo `.env` contendrá las credenciales para conectar con Firebase, la URL del sitio, datos de contacto y la API de Maileroo. Reemplaza los valores de ejemplo con tus propias credenciales.
 
 ### 4. Ejecutar el Servidor de Desarrollo
 

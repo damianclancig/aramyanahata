@@ -4,8 +4,6 @@
 import type { FormValues, TestimonialFormValues } from "@/lib/schemas";
 import { getDb } from "@/lib/firebase";
 import { collection, addDoc, getDocs, query, orderBy, Timestamp } from "firebase/firestore";
-import { Resend } from "resend";
-import { ContactFormEmail } from "@/components/emails/ContactFormEmail";
 
 const initialTestimonials = [
   {
@@ -29,10 +27,15 @@ const initialTestimonials = [
 ];
 
 export async function submitInquiry(data: FormValues) {
-  const resendApiKey = process.env.NEXT_PUBLIC_RESEND_API_KEY;
-  const toEmail = process.env.NEXT_PUBLIC_RESEND_TO_EMAIL;
-  const fromEmail = process.env.NEXT_PUBLIC_RESEND_FROM_EMAIL || 'Aramy Anahata <onboarding@resend.dev>';
   const db = getDb();
+  const mailerooApiKey = process.env.MAILEROO_API_KEY;
+  const fromEmail = process.env.MAILEROO_FROM_EMAIL;
+  const toEmail = process.env.MAILEROO_TO_CONTACT;
+
+  if (!mailerooApiKey || !fromEmail || !toEmail) {
+    console.error("Maileroo environment variables are not configured.");
+    return { success: false, message: "Error en la configuración del servidor. Por favor, intenta más tarde." };
+  }
 
   try {
     // 1. Save to Firebase (as a backup)
@@ -41,28 +44,56 @@ export async function submitInquiry(data: FormValues) {
       createdAt: Timestamp.now(),
     });
 
-    // 2. Send email with Resend
-    if (resendApiKey && toEmail) {
-      const resend = new Resend(resendApiKey);
-      try {
-        await resend.emails.send({
-          from: fromEmail,
-          to: toEmail,
-          subject: 'Nuevo Mensaje de Contacto - Aramy Anahata',
-          react: ContactFormEmail({ name: data.name, email: data.email, message: data.message }),
-        });
-      } catch (emailError) {
-        console.error("Resend email error:", emailError);
-        // Don't block the user response if email fails, just log it.
-        // The inquiry is already saved in Firebase.
-      }
-    } else {
-        console.warn("NEXT_PUBLIC_RESEND_API_KEY or NEXT_PUBLIC_RESEND_TO_EMAIL is not set. Skipping email sending.");
+    // 2. Send email via Maileroo
+    const { name, email, message } = data;
+    const mailerooApiUrl = "https://smtp.maileroo.com/api/v2/emails";
+    
+    const emailPayload = {
+      from: {
+        address: fromEmail,
+        display_name: "Aramy Anahata Web",
+      },
+      to: [{ address: toEmail }],
+      reply_to: { address: email, display_name: name },
+      subject: `Nuevo Mensaje de Contacto - ${name}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
+          <h1 style="color: #789D8C;">Nuevo Mensaje de Contacto</h1>
+          <p>Has recibido un nuevo mensaje a través del formulario de tu sitio web.</p>
+          <hr style="border: 0; border-top: 1px solid #eee;" />
+          <h2>Detalles del Mensaje:</h2>
+          <ul style="list-style: none; padding: 0;">
+            <li><strong>Nombre:</strong> ${name}</li>
+            <li><strong>Email:</strong> ${email}</li>
+          </ul>
+          <h3>Mensaje:</h3>
+          <p style="white-space: pre-wrap; background-color: #f9f9f9; border-left: 4px solid #B6A6CA; padding: 1em;">
+              ${message}
+          </p>
+          <hr style="border: 0; border-top: 1px solid #eee;" />
+        </div>
+      `,
+    };
+
+    const response = await fetch(mailerooApiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${mailerooApiKey}`,
+      },
+      body: JSON.stringify(emailPayload),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error("Maileroo API error:", errorData);
+      return { success: false, message: "Hubo un error al enviar el correo. Por favor, intenta de nuevo." };
     }
 
     return { success: true, message: "¡Gracias por tu mensaje! Te contactaremos pronto." };
+
   } catch (e) {
-    console.error("Error adding document or sending email: ", e);
+    console.error("Error submitting inquiry: ", e);
     return { success: false, message: "Hubo un error al enviar tu mensaje. Por favor, intenta de nuevo." };
   }
 }
