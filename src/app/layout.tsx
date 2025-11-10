@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 const siteConfig = {
   name: "Aramy Anahata",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.aramyanahata.com.ar",
+  url: "https://www.aramyanahata.com.ar",
   description: "Espacio de sanación y bienestar. Terapias energéticas, lecturas intuitivas, masajes y talleres para equilibrar tu cuerpo, mente y espíritu.",
   author: "Stella",
   keywords: ["terapias holísticas", "reiki", "sanación energética", "lecturas de tarot", "masajes holísticos", "bienestar espiritual", "meditación", "cristales"],
@@ -33,10 +33,10 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: `Logo de ${siteConfig.name}`,
+        url: "/images/perfil.jpg",
+        width: 600,
+        height: 600,
+        alt: `Perfil de ${siteConfig.author}, terapeuta en ${siteConfig.name}`,
       },
     ],
   },
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: [`${siteConfig.url}/og-image.jpg`],
+    images: [`${siteConfig.url}/images/perfil.jpg`],
     creator: "@aramy.anahata",
   },
   icons: {
