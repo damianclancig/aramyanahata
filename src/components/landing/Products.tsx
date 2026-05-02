@@ -44,7 +44,7 @@ const products = [
 ];
 
 export function Products() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "521234567890";
+  const whatsappNumber = process.env.WHATSAPP_NUMBER || "521234567890";
   const whatsappBaseUrl = `https://wa.me/${whatsappNumber}?text=`;
   const visibleProducts = products.filter(p => p.visible);
 

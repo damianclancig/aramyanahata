@@ -10,6 +10,7 @@ import { WhatsAppButton } from "@/components/landing/WhatsAppButton";
 import { SectionSeparator } from "@/components/landing/SectionSeparator";
 
 export default function Home() {
+  const whatsappNumber = process.env.WHATSAPP_NUMBER || "521234567890";
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
@@ -27,7 +28,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      <WhatsAppButton />
+      <WhatsAppButton whatsappNumber={whatsappNumber} />
     </div>
   );
 }

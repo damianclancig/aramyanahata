@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function Hero() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "521234567890";
+  const whatsappNumber = process.env.WHATSAPP_NUMBER || "521234567890";
   return (
     <section className="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center text-center text-white">
       <div

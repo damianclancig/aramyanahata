@@ -7,9 +7,12 @@ import { Button } from "@/components/ui/button";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { cn } from "@/lib/utils";
 
-export function WhatsAppButton() {
+interface WhatsAppButtonProps {
+  whatsappNumber: string;
+}
+
+export function WhatsAppButton({ whatsappNumber }: WhatsAppButtonProps) {
   const [isVisible, setIsVisible] = useState(true);
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "521234567890";
 
   useEffect(() => {
     const handleScroll = () => {
