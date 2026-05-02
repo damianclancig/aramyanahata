@@ -5,8 +5,8 @@ import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "521234567890";
-  const instagramUrl = process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://instagram.com/aramy.anahata";
+  const whatsappNumber = process.env.WHATSAPP_NUMBER || "521234567890";
+  const instagramUrl = process.env.INSTAGRAM_URL || "https://instagram.com/aramy.anahata";
 
   return (
     <footer className="bg-background/80 border-t">

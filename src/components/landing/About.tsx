@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { InstagramIcon } from "@/components/icons/InstagramIcon";
 
 export function About() {
-  const instagramUrl = process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://instagram.com/aramy.anahata";
+  const instagramUrl = process.env.INSTAGRAM_URL || "https://instagram.com/aramy.anahata";
 
   return (
     <section id="about" className="w-full bg-background">
